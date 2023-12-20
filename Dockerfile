@@ -1,6 +1,5 @@
-FROM node:20.10.0
+FROM node:18.15
+COPY index.js package.json /app/
 WORKDIR /app
-COPY index.js package.json package-lock.json ./
 RUN npm install && npm cache clean --force
-COPY . ./
-CMD npm start
+CMD node index.js
